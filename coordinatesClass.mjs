@@ -19,7 +19,7 @@ class Coordinates {
     yValue() {
         return this.y;
     }
-    
+
     setBarren(barren) {
         this.barren = barren;
     }
@@ -47,3 +47,5 @@ class Coordinates {
         return this.text;
     }
 }
+
+export default Coordinates;
