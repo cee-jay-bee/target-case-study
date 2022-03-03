@@ -12,8 +12,10 @@ const findFertileLand = (givenCornersString) => {
 
     let grid = new Coordinates(xTiles, yTiles);
 
-    //transform given string coordinates into arrays of integers
-    const barrenLandCoordinates = (cornersString) =>{
+    // transform given string coordinates into arrays of integers
+    // input of provided strings in arrays
+    // outputs array of arrays of integers for rectangles
+    const barrenLandCoordinates = cornersString =>{
         let integerCornersArray = [];
 
         for ( let i=0; i < cornersString.length; i++) {
@@ -27,8 +29,31 @@ const findFertileLand = (givenCornersString) => {
         return integerCornersArray;
     }
 
-    console.log(barrenLandCoordinates(givenCornersString));
+    // calculates each coordinate that falls within barren rectangles
+    // takes in the array of arrays of given barren land parameters
+    // outputs every x,y coordinate that falls into those rectangles
+    const landOfCoveredRectangleFromCoordinates = cornersOfBarrenLand => {
+        let coveredBarrenLandCoordinates = [];
 
+        for (let x = cornersOfBarrenLand[0]; x <= cornersOfBarrenLand[2]; x++) {
+            for (let y = cornersOfBarrenLand[1]; y <= cornersOfBarrenLand[3]; y++) {
+                let currentCoordinates = new Coordinates(x, y);
+                coveredBarrenLandCoordinates.push(currentCoordinates);
+            }
+        }
+        return coveredBarrenLandCoordinates;
+    }
+    
+    
+    let barrenLandCoordinatesArrays = barrenLandCoordinates(givenCornersString);
+    let barrenLandRectangles = [];
+    
+    for (let i = 0; i < barrenLandCoordinatesArrays.length; i++){
+        barrenLandRectangles.push(landOfCoveredRectangleFromCoordinates(barrenLandCoordinatesArrays[i]));
+
+    }
+
+    console.log(barrenLandRectangles);
     
 } 
 
