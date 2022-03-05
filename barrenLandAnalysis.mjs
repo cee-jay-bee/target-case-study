@@ -114,16 +114,11 @@ const findFertileLand = (givenCornersString) => {
         barrenLandRectangles.push(landOfCoveredRectangleFromCoordinates(barrenLandCoordinatesArrays[i]));
     }
     
-    // create the barren grid by looping through the grids and changing fertile (1) to barren (0)
-    for (let y = 0; y < yTiles; y++){
-        for (let x = 0; x < xTiles; x++) {
-            for (let i = 0; i < barrenLandRectangles.length; i++){
-                for (let j = 0; j < barrenLandRectangles[i].length; j++){
-                    if (x === barrenLandRectangles[i][j][0] && y === barrenLandRectangles[i][j][1] ){
-                        grid[x][y] = 0;
-                    }
-                }
-            }
+    // create the barren grid by looping through the barrengrids and changing fertile (1) to barren (0)
+
+    for (let i = 0; i < barrenLandRectangles.length; i++){
+        for (let j = 0; j < barrenLandRectangles[i].length; j++){
+            grid[barrenLandRectangles[i][j][0]][barrenLandRectangles[i][j][1]] = 0;
         }
     }
 
@@ -135,6 +130,6 @@ const findFertileLand = (givenCornersString) => {
     console.log(fertileLand);
 } 
 
-findFertileLand(STDIN);
+findFertileLand(STDIN2);
 
 export default findFertileLand;
