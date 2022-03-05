@@ -1,4 +1,5 @@
 import Coordinates from './coordinatesClass.mjs';
+
 const STDIN = ['0 292 399 307'];
 const STDIN2 = ['48 192 351 207', '48 392 351 407', '120 52 135 547', '260 52 275 547'];
 
@@ -10,7 +11,7 @@ const findFertileLand = (givenCornersString) => {
     let xTiles = width / tileSize;
     let yTiles = length /tileSize;
 
-    let grid = new Coordinates(xTiles, yTiles);
+    let grid = [];
 
     // transform given string coordinates into arrays of integers
     // input of provided strings in arrays
@@ -50,11 +51,26 @@ const findFertileLand = (givenCornersString) => {
     
     for (let i = 0; i < barrenLandCoordinatesArrays.length; i++){
         barrenLandRectangles.push(landOfCoveredRectangleFromCoordinates(barrenLandCoordinatesArrays[i]));
-
     }
 
     console.log(barrenLandRectangles);
     
+    for (let y = 0; y < yTiles; y++){
+        for (let x = 0; x < xTiles; x++){
+            let newPlotOfLand = new Coordinates(x, y);
+
+            for (let i = 0; i < barrenLandRectangles.length; i++){
+                if (newPlotOfLand.xValue === barrenLandRectangles[i].x && newPlotOfLand.yValue() === barrenLandRectangles[i].y ){
+                    newPlotOfLand.setBarren(true);
+                } else {
+                    newPlotOfLand.setBarren(false);
+                }
+            }
+            grid.push(newPlotOfLand);
+        }
+    }
+
+    console.log(grid);
 } 
 
 findFertileLand(STDIN);
