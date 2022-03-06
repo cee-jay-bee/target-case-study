@@ -2,7 +2,7 @@
 const STDIN = ['0 292 399 307'];
 const STDIN2 = ['48 192 351 207', '48 392 351 407', '120 52 135 547', '260 52 275 547'];
 const STDIN3 = ['0 0 0 599', '0 0 399 0', '10 0 10 599', '0 250 399 250'];
-const STDIN4 = ["0 0 0 599", "2 0 2 599", "3 2 399 3", "5 0 5 1", "10 4 12 599"]
+const STDIN4 = ['0 0 0 599', '2 0 2 599', '3 2 399 3', '5 0 5 1', '10 4 12 599'];
 
 const barrenLandAnalysis = (givenCornersString) => {
     const tileSize = 1;
@@ -145,7 +145,5 @@ const barrenLandAnalysis = (givenCornersString) => {
     return STDOUT;
     
 } 
-
-console.log(barrenLandAnalysis(STDIN4));
 
 module.exports = barrenLandAnalysis;
