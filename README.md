@@ -25,13 +25,13 @@ area to greatest, separated by a space.
 
 Sample Input
 ---
-Case 1: {“0 292 399 307”}
-Case 2: {“48 192 351 207”, “48 392 351 407”, “120 52 135 547”, “260 52 275 547”}
+- Case 1: {“0 292 399 307”}
+- Case 2: {“48 192 351 207”, “48 392 351 407”, “120 52 135 547”, “260 52 275 547”}
 
 Sample Output
 ---
- Case 1: 116800 116800
- Case 2: 22816 192608 
+- Case 1: 116800 116800
+- Case 2: 22816 192608 
 
 Technology Used to Solve
 ---
@@ -43,6 +43,6 @@ Getting Started
 Make sure you are using an IDE that supports JavaScript (I used VSCode)
 - In your root folder make sure to initialize npm by typing ```npm init```
 - Use git to clone the project from the repository
-- Navigate to the root director and run ```npm install jest```
+- Navigate to the root directory and run ```npm install jest```
 - To run tests type ```npm run test``` in command line
 - There are the test inputs at the beginning of the `barrenLandAnalysis.js` file, but you can create your own, and run ```barrenLandAnalysis({YOUR INPUT HERE})``` at the bottom of the file to test other input options
